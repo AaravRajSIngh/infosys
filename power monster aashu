@@ -1,0 +1,28 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int n,po,i;
+    cin>>n>>po;
+    int m[n],b[n];
+    for(i=0;i<n;i++)
+        cin>>m[i];
+    for(i=0;i<n;i++)
+        cin>>b[i];
+    vector<pair<int,int>> p;
+    for(int i=0;i<n;i++){
+        p.push_back(make_pair(m[i],b[i]));
+    }
+    sort(p.begin(),p.end());
+    int count = 0;
+    i = 0;
+    while(p[i].first<=po && i<n){
+        count++;
+        po = po + p[i].second;
+        i++;
+    }
+
+    cout<<count;
+}
